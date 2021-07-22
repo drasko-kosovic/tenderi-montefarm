@@ -1,0 +1,184 @@
+<div>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <input hidden #fileInput type="file" id="file" />
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj novu ponudu" (click)="addNew()">Dodaj Ponudu</mat-button-toggle>
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Unesi Excel fajl" (click)="uploadFile()"
+      >Dodaj Fajl</mat-button-toggle
+    >
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
+      >Napravi Obrazac</mat-button-toggle
+    >
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
+      >Nadji Fajl</mat-button-toggle
+    >
+
+    <mat-button-toggle
+      *jhiHasAnyAuthority="'ROLE_ADMIN'"
+      matTooltip=" Excel fajl"
+      (click)="exporter.exportTable('xlsx', { fileName: 'Ponude', sheet: 'sheet_name', Props: { Author: 'Talha' } })"
+      ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt=""
+    /></mat-button-toggle>
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Ukloni cijelu ponudu" (click)="open(content1)"
+      >Ukloni Ponudu</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+  <mat-form-field>
+    <mat-label>Ponudjaci</mat-label>
+    <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
+      <mat-option (click)="ngOnChanges()">Osvjezi</mat-option>
+      <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">
+        {{ foo.nazivPonudjaca }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="container-search">
+    <mat-icon matPrefix>search</mat-icon>
+    <input type="search" (keyup)="doFilter(box.value)" #box matInput placeholder="" />
+  </mat-form-field>
+  <!--<jhi-alert-error></jhi-alert-error>-->
+  <jhi-alert></jhi-alert>
+</div>
+<div class="example-container mat-elevation-z8">
+  <table
+    mat-table
+    id="ExampleTable"
+    matTableExporter
+    [dataSource]="dataSource"
+    matSort
+    matSortStart="desc"
+    #exporter="matTableExporter"
+    [hiddenColumns]="[9, 10]"
+  >
+    <ng-container matColumnDef="sifra postupka">
+      <th mat-header-cell *matHeaderCellDef>Sifra Postupka</th>
+      <td mat-cell *matCellDef="let element">{{ element.sifraPostupka }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="sifraPonude">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Ponude</th>
+      <td mat-cell *matCellDef="let element">{{ element.sifraPonude }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="brojPartije">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Broj Partije</th>
+      <td mat-cell *matCellDef="let element">{{ element.brojPartije }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="naziv ponudjaca">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ponudjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivPonudjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="naziv proizvodjaca">
+      <th mat-header-cell *matHeaderCellDef>Proizvodjac</th>
+      <td mat-cell *matCellDef="let element">{{ element.nazivProizvodjaca }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="zasticeni naziv">
+      <th mat-header-cell *matHeaderCellDef>Zasticeni Naziv</th>
+      <td mat-cell *matCellDef="let element">{{ element.zasticeniNaziv }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="ponudjena vrijednost">
+      <th mat-header-cell *matHeaderCellDef>Ponudjena Cijena</th>
+      <td mat-cell *matCellDef="let element">{{ element.ponudjenaVrijednost | number: '1.2-2' }}</td>
+      <td mat-footer-cell *matFooterCellDef>{{ ukupnaPonudjena | number: '1.2-2' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="rok isporuke">
+      <th mat-header-cell *matHeaderCellDef>Rok Isporuke</th>
+      <td mat-cell *matCellDef="let element">{{ element.rokIsporuke }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="datum ponude">
+      <th mat-header-cell *matHeaderCellDef>Datum Ponude</th>
+      <td mat-cell *matCellDef="let element">{{ element.datumPonude }}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="edit" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
+          id="edit"
+          (click)="
+            startEdit(
+              element.id,
+              element.sifraPostupka,
+              element.sifraPonude,
+              element.brojPartije,
+              element.sifraPonudjaca,
+              element.nazivProizvodjaca,
+              element.zasticeniNaziv,
+              element.ponudjenaVrijednost,
+              element.rokIsporuke,
+              element.datumPonude
+            )
+          "
+          >edit</mat-icon
+        >
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon matTooltip="Obrisi izabrane pozicije" *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete-selected" (click)="deleteSelected()">
+          delete
+        </mat-icon>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" id="delete" type="submit" (click)="delete(element)">delete</mat-icon>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <section class="example-section">
+          <mat-checkbox *jhiHasAnyAuthority="'ROLE_ADMIN'" class="example-margin" (click)="updateSelected(element.id)"></mat-checkbox>
+        </section>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <tr class="heder" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+  </table>
+  <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Brisanje</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4>Dali ste sigurni da zeliet izbrisete selektovane partije</h4>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="modal.close('Save click')">NE</button>
+    <button mat-raised-button color="warn" (click)="deleteSelected()" (click)="modal.close('Save click')">DA</button>
+  </div>
+</ng-template>
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Brisanje</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4>Dali ste sigurni da zelite izbrisete cijelu ponude</h4>
+  </div>
+  <div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="modal.close('Save click')">NE</button>
+    <button mat-raised-button color="warn" (click)="deleteSifra()" (click)="modal.close('Save click')">DA</button>
+  </div>
+</ng-template>
+
+<hr />

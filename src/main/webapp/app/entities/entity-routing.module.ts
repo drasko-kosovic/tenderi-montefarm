@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeTenderiComponent } from './home-tenderi/home-tenderi.component';
 
 @NgModule({
   imports: [
@@ -14,16 +15,15 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'tenderiApp.postupci.home.title' },
         loadChildren: () => import('./postupci/postupci.module').then(m => m.PostupciModule),
       },
-      // {
-      //   path: 'tenderi-home',
-      //   data: { pageTitle: 'tenderiApp.tenderiHome.home.title' },
-      //   loadChildren: () => import('./tenderi-home/tenderi-home.module').then(m => m.TenderiHomeModule),
-      // },
-      // {
-      //   path: 'specifikacije',
-      //   data: { pageTitle: 'tenderiApp.specifikacije.home.title' },
-      //   loadChildren: () => import('./specifikacije/specifikacije.module').then(m => m.SpecifikacijeModule),
-      // },
+      {
+        path: 'home-tenderi',
+        component: HomeTenderiComponent,
+      },
+      {
+        path: 'specifikacije',
+        data: { pageTitle: 'tenderiApp.specifikacije.home.title' },
+        loadChildren: () => import('./specifikacije/specifikacije.module').then(m => m.SpecifikacijeModule),
+      },
       // {
       //   path: 'ponude',
       //   data: { pageTitle: 'tenderiApp.view-ponude.home.title' },
@@ -34,11 +34,11 @@ import { RouterModule } from '@angular/router';
       //   data: { pageTitle: 'tenderiApp.hvaleponude.home.title' },
       //   loadChildren: () => import('./hvale-ponude/hvale-ponude.module').then(m => m.HvalePonudeModule),
       // },
-      // {
-      //   path: 'vrednovanje',
-      //
-      //   loadChildren: () => import('./view-vrednovanje/view-vrednovanje.module').then(m => m.ViewVrednovanjeModule),
-      // },
+      {
+        path: 'vrednovanje',
+
+        loadChildren: () => import('./view-vrednovanje/view-vrednovanje.module').then(m => m.ViewVrednovanjeModule),
+      },
       // {
       //   path: 'prvorangirani',
       //   data: { pageTitle: 'tenderiApp.prvorangirani.home.title' },

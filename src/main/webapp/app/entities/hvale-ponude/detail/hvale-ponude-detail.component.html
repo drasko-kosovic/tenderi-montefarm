@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hvalePonude">
+      <h2 data-cy="hvalePonudeDetailsHeading"><span jhiTranslate="tenderiApp.hvalePonude.detail.title">Hvale Ponude</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ hvalePonude.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.sifraPostupka">Sifra Postupka</span></dt>
+        <dd>
+          <span>{{ hvalePonude.sifraPostupka }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.brojPartije">Broj Partije</span></dt>
+        <dd>
+          <span>{{ hvalePonude.brojPartije }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.inn">Inn</span></dt>
+        <dd>
+          <span>{{ hvalePonude.inn }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.farmaceutskiOblikLijeka">Farmaceutski Oblik Lijeka</span></dt>
+        <dd>
+          <span>{{ hvalePonude.farmaceutskiOblikLijeka }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.pakivanje">Pakivanje</span></dt>
+        <dd>
+          <span>{{ hvalePonude.pakivanje }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.trazenaKolicina">Trazena Kolicina</span></dt>
+        <dd>
+          <span>{{ hvalePonude.trazenaKolicina }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.hvalePonude.procijenjenaVrijednost">Procijenjena Vrijednost</span></dt>
+        <dd>
+          <span>{{ hvalePonude.procijenjenaVrijednost }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+    </div>
+  </div>
+</div>
