@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      // {
-      //   path: 'ponudjaci',
-      //   data: { pageTitle: 'tenderiApp.ponudjaci.home.title' },
-      //   loadChildren: () => import('./ponudjaci/ponudjaci.module').then(m => m.PonudjaciModule),
-      // },
+      {
+        path: 'ponudjaci',
+        data: { pageTitle: 'tenderiApp.ponudjaci.home.title' },
+        loadChildren: () => import('./ponudjaci/ponudjaci.module').then(m => m.PonudjaciModule),
+      },
       {
         path: 'postupci',
         data: { pageTitle: 'tenderiApp.postupci.home.title' },
@@ -24,11 +24,11 @@ import { RouterModule } from '@angular/router';
       //   data: { pageTitle: 'tenderiApp.specifikacije.home.title' },
       //   loadChildren: () => import('./specifikacije/specifikacije.module').then(m => m.SpecifikacijeModule),
       // },
-      {
-        path: 'ponude',
-        data: { pageTitle: 'tenderiApp.view-ponude.home.title' },
-        loadChildren: () => import('./view-ponude/view-ponude.module').then(m => m.ViewPonudeModule),
-      },
+      // {
+      //   path: 'ponude',
+      //   data: { pageTitle: 'tenderiApp.view-ponude.home.title' },
+      //   loadChildren: () => import('./view-ponude/view-ponude.module').then(m => m.ViewPonudeModule),
+      // },
       // {
       //   path: 'hvale-ponude',
       //   data: { pageTitle: 'tenderiApp.hvaleponude.home.title' },
@@ -44,16 +44,16 @@ import { RouterModule } from '@angular/router';
       //   data: { pageTitle: 'tenderiApp.prvorangirani.home.title' },
       //   loadChildren: () => import('./prvorangirani/prvorangirani.module').then(m => m.PrvorangiraniModule),
       // },
-      // {
-      //   path: 'ugovor',
-      //   data: { pageTitle: 'tenderiApp.ugovor.home.title' },
-      //   loadChildren: () => import('./ugovor/ugovor.module').then(m => m.UgovorModule),
-      // },
-      // {
-      //   path: 'narucilac',
-      //   data: { pageTitle: 'tenderiApp.narucilac.home.title' },
-      //   loadChildren: () => import('./naruclac/naruclac.module').then(m => m.NaruclacModule),
-      // },
+      {
+        path: 'ugovor',
+        data: { pageTitle: 'tenderiApp.ugovor.home.title' },
+        loadChildren: () => import('./ugovor/ugovor.module').then(m => m.UgovorModule),
+      },
+      {
+        path: 'narucilac',
+        data: { pageTitle: 'tenderiApp.narucilac.home.title' },
+        loadChildren: () => import('./naruclac/naruclac.module').then(m => m.NaruclacModule),
+      },
     ]),
   ],
 })

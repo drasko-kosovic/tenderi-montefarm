@@ -1,0 +1,137 @@
+<div id="ugovor">
+  <h2 mat-dialog-title>Ugovor</h2>
+  <mat-dialog-content class="mat-typography">
+    <jhi-alert-error></jhi-alert-error>
+    <form name="editForm" role="form" novalidate [formGroup]="editForm">
+      <mat-form-field color="accent">
+        <input matInput placeholder="sifra postupka" formControlName="sifraPostupka" name="sifraPostupka" />
+        <div
+          *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field color="accent">
+        <input matInput placeholder="sifra ponude" formControlName="sifraPonude" name="sifraPonude" />
+        <div *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('sifraPonude')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ponudjaci</mat-label>
+        <mat-select formControlName="sifraPonudjaca">
+          <mat-option></mat-option>
+          <mat-option *ngFor="let foo of ponudjacis" [value]="foo.id">
+            {{ foo.nazivPonudjaca }}
+          </mat-option>
+        </mat-select>
+
+        <div
+          *ngIf="
+            editForm.get('sifraPonudjaca')!.invalid && (editForm.get('sifraPonudjaca')!.dirty || editForm.get('sifraPonudjaca')!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('sifraPonudjaca')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field color="accent">
+        <input matInput placeholder="Broj Odluke" formControlName="brojOdluke" name="brojOdluke" />
+        <div *ngIf="editForm.get('brojOdluke')!.invalid && (editForm.get('brojOdluke')!.dirty || editForm.get('brojOdluke')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('brojOdluke')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Broj Ugovora" formControlName="brojUgovora" name="brojUgovora" />
+        <div *ngIf="editForm.get('brojUgovora')!.invalid && (editForm.get('brojUgovora')!.dirty || editForm.get('brojUgovora')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('brojUgovora')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="iznos Ugovora Bez PDV" formControlName="iznosUgovoraBezPdf" name="iznosUgovoraBezPdf" />
+        <div
+          *ngIf="
+            editForm.get('iznosUgovoraBezPdf')!.invalid &&
+            (editForm.get('iznosUgovoraBezPdf')!.dirty || editForm.get('iznosUgovoraBezPdf')!.touched)
+          "
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('iznosUgovoraBezPdf')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="datumOdluke" matInput [matDatepicker]="picker3" placeholder="Datum Odluke" formControlName="datumOdluke" />
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input name="datumUgovora" matInput [matDatepicker]="picker4" placeholder="Datum Ugovora" formControlName="datumUgovora" />
+        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" mat-dialog-close>Odustani</button>
+    <button
+      [hidden]="aktivno == false"
+      id="sacuvaj-button"
+      mat-raised-button
+      color="primary"
+      (click)="save()"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+    >
+      Sačuvaj
+    </button>
+    <button
+      [disabled]="editForm.invalid"
+      [hidden]="aktivno == true"
+      mat-raised-button
+      color="primary"
+      (click)="confirmAdd()"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+    >
+      Dodaj
+    </button>
+  </mat-dialog-actions>
+</div>
