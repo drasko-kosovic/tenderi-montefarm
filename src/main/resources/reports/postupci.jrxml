@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f1aec6f-040a-40c4-9126-3ace17c47e66">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapterPostupak.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select * from postupci]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="postupci"/>
+	</field>
+	<field name="sifraPostupka" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="sifraPostupka"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="postupci"/>
+	</field>
+	<field name="brojTendera" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="brojTendera"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="postupci"/>
+	</field>
+	<field name="opisPostupka" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="opisPostupka"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="postupci"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="141" height="30" uuid="196458a3-d26f-4bc1-a2a9-c67b605390d4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="48afe66e-60aa-4009-91a2-8ba80e0a1893"/>
+				</reportElement>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="138" height="30" uuid="d0529a0f-0402-410d-b131-0dbdd15d8cf8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="741fdc1d-91e4-4184-8a61-15248b35a5b7"/>
+				</reportElement>
+				<text><![CDATA[sifraPostupka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="138" height="30" uuid="2d8666fe-5d1e-45f3-a2ce-10d5ef59ff6d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="032b8a95-8eb6-4855-8cfb-f6d3cbaaf0e1"/>
+				</reportElement>
+				<text><![CDATA[brojTendera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="0" width="138" height="30" uuid="0d4955ed-1458-4e49-809b-fb715b56777c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d747e75-1546-4586-a2c7-c7e398dc27bc"/>
+				</reportElement>
+				<text><![CDATA[opisPostupka]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="141" height="30" uuid="38f343aa-922e-42b8-adec-c26ba7396f80">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="48afe66e-60aa-4009-91a2-8ba80e0a1893"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="0" width="138" height="30" uuid="1878903f-3002-4162-b317-c3099fcf5c96">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="741fdc1d-91e4-4184-8a61-15248b35a5b7"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{sifraPostupka}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="138" height="30" uuid="6ab4999b-0f72-40d4-9e62-0d8f84018b93">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="032b8a95-8eb6-4855-8cfb-f6d3cbaaf0e1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{brojTendera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="0" width="138" height="30" uuid="5ad18188-05d7-4a67-879e-eca72e47ba32">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d747e75-1546-4586-a2c7-c7e398dc27bc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{opisPostupka}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

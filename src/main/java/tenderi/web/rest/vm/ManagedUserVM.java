@@ -1,7 +1,8 @@
 package tenderi.web.rest.vm;
 
-import javax.validation.constraints.Size;
 import tenderi.service.dto.AdminUserDTO;
+
+import javax.validation.constraints.Size;
 
 /**
  * View Model extending the AdminUserDTO, which is meant to be used in the user management UI.

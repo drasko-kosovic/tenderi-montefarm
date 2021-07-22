@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+  <changeSet author="Drasko" id="create-view-prvorangirani">
+    <createView catalogName="tenderi" schemaName="public" viewName="view_prvorangirani">
+        SELECT
+        view_vrednovanje.id,
+        view_vrednovanje.sifra_postupka,
+        view_vrednovanje.sifra_ponude,
+        view_vrednovanje.broj_partije,
+        view_vrednovanje.atc,
+        view_vrednovanje.inn,
+        view_vrednovanje.zasticeni_naziv,
+        view_vrednovanje.farmaceutski_oblik_lijeka,
+        view_vrednovanje.jacina_lijeka,
+        view_vrednovanje.pakovanje,
+        view_vrednovanje.jedinica_mjere,
+        view_vrednovanje.trazena_kolicina,
+        view_vrednovanje.procijenjena_vrijednost,
+        view_vrednovanje.ponudjena_vrijednost,
+        view_vrednovanje.rok_isporuke,
+
+        ponudjaci.naziv_ponudjaca,
+        view_vrednovanje.naziv_proizvodjaca,
+        view_vrednovanje.bod_cijena,
+        view_vrednovanje.bod_rok,
+        view_vrednovanje.bod_ukupno
+        FROM ((view_vrednovanje
+        JOIN view_maximalni_bod ON
+        (
+        (
+        (view_vrednovanje.broj_partije = view_maximalni_bod.broj_partije) AND
+        (view_vrednovanje.sifra_postupka = view_maximalni_bod.sifra_postupka) AND
+        (view_vrednovanje.bod_ukupno = view_maximalni_bod.maximalni_bod)
+        )
+        ))
+        JOIN ponudjaci ON
+        (
+        (view_vrednovanje.sifra_ponudjaca = ponudjaci.id)
+        ));
+
+    </createView>
+  </changeSet>
+</databaseChangeLog>

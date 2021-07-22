@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+  <changeSet author="Drasko" id="create-view-ponude">
+    <createView catalogName="tenderi" schemaName="public" viewName="view_ponude">
+        SELECT ponude.id,
+        ponude.sifra_postupka,
+        ponude.sifra_ponude,
+        ponude.broj_partije,
+        ponude.sifra_ponudjaca,
+        ponude.naziv_proizvodjaca,
+        ponude.zasticeni_naziv,
+        ponude.ponudjena_vrijednost,
+        ponude.rok_isporuke,
+        ponude.selected,
+        ponude.datum_ponude,
+        ponudjaci.naziv_ponudjaca
+        FROM ponude
+        JOIN ponudjaci ON ponude.sifra_ponudjaca = ponudjaci.id;
+
+    </createView>
+  </changeSet>
+</databaseChangeLog>

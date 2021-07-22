@@ -1,8 +1,5 @@
 package tenderi.web.rest;
 
-import java.util.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +12,15 @@ import tenderi.service.MailService;
 import tenderi.service.UserService;
 import tenderi.service.dto.AdminUserDTO;
 import tenderi.service.dto.PasswordChangeDTO;
-import tenderi.service.dto.UserDTO;
-import tenderi.web.rest.errors.*;
+import tenderi.web.rest.errors.EmailAlreadyUsedException;
+import tenderi.web.rest.errors.InvalidPasswordException;
+import tenderi.web.rest.errors.LoginAlreadyUsedException;
 import tenderi.web.rest.vm.KeyAndPasswordVM;
 import tenderi.web.rest.vm.ManagedUserVM;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.Optional;
 
 /**
  * REST controller for managing the current user's account.

@@ -26,6 +26,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   imports: [
+    MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
@@ -76,6 +77,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatListModule,
     MatIconModule,
     MatToolbarModule,
+    MatFormFieldModule,
   ],
 })
 export class JhMaterialModule {}

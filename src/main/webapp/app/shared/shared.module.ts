@@ -43,6 +43,7 @@ import {JhMaterialModule} from "./jh-material.module";
     SortByDirective,
     SortDirective,
     ItemCountComponent,
+    JhMaterialModule
   ],
 })
 export class SharedModule {}

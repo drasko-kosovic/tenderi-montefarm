@@ -16,8 +16,9 @@ import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWrite
 import org.springframework.web.filter.CorsFilter;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 import tech.jhipster.config.JHipsterProperties;
-import tenderi.security.*;
-import tenderi.security.jwt.*;
+import tenderi.security.AuthoritiesConstants;
+import tenderi.security.jwt.JWTConfigurer;
+import tenderi.security.jwt.TokenProvider;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
@@ -57,7 +58,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/i18n/**")
             .antMatchers("/content/**")
             .antMatchers("/swagger-ui/**")
-            .antMatchers("/test/**");
+            .antMatchers("/test/**")
+            .antMatchers("/api/report/ugovor/**")
+            .antMatchers("/api/report/ugovor-docx/**")
+            .antMatchers("/api/report/postupci-docx/**")
+            .antMatchers("/api/report/prvorangirani/**")
+            .antMatchers("/api/uploadfiles")
+            .antMatchers("/api/specifikacije/file")
+            .antMatchers("/api/file");
     }
 
     @Override

@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+  <changeSet author="Drasko" id="create-view-anex">
+    <createView catalogName="tenderi" schemaName="public" viewName="view_anex">
+        SELECT
+        view_prvorangirani.id,
+        view_prvorangirani.sifra_postupka,
+        view_prvorangirani.sifra_ponude,
+        view_prvorangirani.broj_partije,
+        view_prvorangirani.atc,
+        view_prvorangirani.inn,
+        view_prvorangirani.zasticeni_naziv,
+        view_prvorangirani.farmaceutski_oblik_lijeka,
+        view_prvorangirani.jacina_lijeka,
+        view_prvorangirani.pakovanje,
+        view_prvorangirani.jedinica_mjere,
+        view_prvorangirani.trazena_kolicina,
+        view_prvorangirani.procijenjena_vrijednost,
+        view_prvorangirani.ponudjena_vrijednost,
+        view_prvorangirani.rok_isporuke,
+        view_prvorangirani.naziv_ponudjaca,
+        view_prvorangirani.naziv_proizvodjaca,
+        ugovor.broj_ugovora,
+        ugovor.datum_ugovora
+        FROM (view_prvorangirani
+        JOIN ugovor ON
+        (
+        (
+        (view_prvorangirani.sifra_postupka = ugovor.sifra_postupka) AND
+        (view_prvorangirani.sifra_ponude = ugovor.sifra_ponude)
+        )
+        ));
+
+    </createView>
+  </changeSet>
+</databaseChangeLog>

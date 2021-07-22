@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ViewVrednovanje.
+    -->
+    <changeSet author="Drasko" id="view-vrednovanje">
+        <createView catalogName="tenderi" schemaName="public" viewName="view_vrednovanje">
+            SELECT
+            view_vrednovanje0.id,
+            view_vrednovanje0.sifra_postupka,
+            view_vrednovanje0.sifra_ponude,
+            view_vrednovanje0.broj_partije,
+            view_vrednovanje0.atc,
+            view_vrednovanje0.inn,
+            view_vrednovanje0.zasticeni_naziv,
+            view_vrednovanje0.farmaceutski_oblik_lijeka,
+            view_vrednovanje0.jacina_lijeka,
+            view_vrednovanje0.pakovanje,
+            view_vrednovanje0.jedinica_mjere,
+            view_vrednovanje0.trazena_kolicina,
+            view_vrednovanje0.procijenjena_vrijednost,
+            view_vrednovanje0.ponudjena_vrijednost,
+            view_vrednovanje0.rok_isporuke,
+            view_vrednovanje0.sifra_ponudjaca,
+            view_vrednovanje0.naziv_proizvodjaca,
+            view_vrednovanje0.bod_cijena,
+            view_vrednovanje0.bod_rok,
+            (view_vrednovanje0.bod_cijena + view_vrednovanje0.bod_rok) AS bod_ukupno,
+            view_vrednovanje0.naziv_ponudjaca
+            FROM view_vrednovanje0;
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

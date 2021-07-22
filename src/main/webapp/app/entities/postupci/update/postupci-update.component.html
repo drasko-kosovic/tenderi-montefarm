@@ -1,0 +1,109 @@
+<h2 mat-dialog-title>Postupci</h2>
+<mat-dialog-content class="mat-typography">
+  <form name="editForm" role="form" novalidate (ngSubmit)="confirmAdd()" [formGroup]="editForm">
+    <div>
+      <jhi-alert-error></jhi-alert-error>
+      <mat-form-field>
+        <input matInput placeholder="sifraPostupka" formControlName="sifraPostupka" name="sifraPostupka" />
+        <div
+          *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+          <small
+            class="form-text text-danger"
+            [hidden]="!editForm.get('sifraPostupka')?.errors?.number"
+            jhiTranslate="entity.validation.number"
+          >
+            This field should be a number.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
+        <div *ngIf="editForm.get('brojTendera')!.invalid && (editForm.get('brojTendera')!.dirty || editForm.get('brojTendera')!.touched)">
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('brojTendera')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="opis postupka" formControlName="opisPostupka" name="opisPostupka" />
+        <div
+          *ngIf="editForm.get('opisPostupka')!.invalid && (editForm.get('opisPostupka')!.dirty || editForm.get('opisPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('opisPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Vrsta Postupka</mat-label>
+        <mat-select formControlName="vrstaPostupka" #vrstaPostupka>
+          <mat-option value="ljekovi">Ljekovi</mat-option>
+          <mat-option value="potrosni">Potrosni</mat-option>
+        </mat-select>
+        <div
+          *ngIf="editForm.get('vrstaPostupka')!.invalid && (editForm.get('vrstaPostupka')!.dirty || editForm.get('vrstaPostupka')!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get('vrstaPostupka')?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Obavezno polje.
+          </small>
+        </div>
+      </mat-form-field>
+<mat-form-field>
+  <input name="myDate" matInput [matDatepicker]="picker3"
+        placeholder="Date"
+         formControlName="datumObjave">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+</mat-form-field>
+
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Odustani</button>
+  <button
+    [hidden]="aktivno == false"
+    id="sacuvaj-button"
+    mat-raised-button
+    color="primary"
+    (click)="save()"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    Sačuvaj
+  </button>
+  <button
+    (click)="confirmAdd()"
+    [disabled]="editForm.invalid"
+    [hidden]="aktivno == true"
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    Dodaj
+  </button>
+</mat-dialog-actions>

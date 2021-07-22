@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+  <changeSet author="Drasko" id="create-view-ugovor">
+    <createView catalogName="tenderi" schemaName="public" viewName="view_ugovor">
+        SELECT
+        ponudjaci.odgovorno_lice,
+        ponudjaci.adresa_ponudjaca,
+        ponudjaci.banka_racun,
+        postupci.datum_objave,
+        postupci.vrsta_postupka,
+        ugovor.id,
+        ugovor.broj_ugovora,
+        ugovor.broj_odluke,
+        ugovor.datum_odluke,
+        ugovor.datum_ugovora,
+        ugovor.iznos_ugovora_bez_pdf,
+        ugovor.sifra_postupka,
+        ugovor.sifra_ponude,
+        ponudjaci.naziv_ponudjaca,
+        ponude.datum_ponude,
+        postupci.broj_tendera,
+        postupci.opis_postupka AS predmet_ugovora,
+        concat(ugovor.broj_odluke, '  ',(ugovor.datum_odluke) ::character varying) AS broj_datum_odluke,
+        concat(ugovor.sifra_ponude, '  ',(postupci.datum_objave) ::character varying) AS broj_datum_ponude,
+        concat(postupci.broj_tendera, '  ',(postupci.datum_objave) ::character varying) AS broj_datum_tenderske_dokumntacije,
+        public.naruclac.naziv,
+        public.naruclac.adresa,
+        public.naruclac.racun,
+        public.naruclac.odgovorno_lice_narucioca
+        FROM
+        ugovor
+        INNER JOIN ponudjaci ON (ugovor.sifra_ponudjaca = ponudjaci.id)
+        INNER JOIN postupci ON (ugovor.sifra_postupka = postupci.sifra_postupka)
+        INNER JOIN ponude ON (ugovor.sifra_postupka = ponude.sifra_postupka)
+        AND (ugovor.sifra_ponude = ponude.sifra_ponude),
+        public.naruclac
+
+
+    </createView>
+  </changeSet>
+</databaseChangeLog>

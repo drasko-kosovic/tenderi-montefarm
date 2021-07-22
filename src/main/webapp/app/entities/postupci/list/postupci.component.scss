@@ -1,0 +1,30 @@
+tr.mat-row:hover {
+  background-color: orange;
+}
+tr {
+  cursor: pointer;
+}
+table {
+  width: 100%;
+}
+//mat-button-toggle {
+//  background-color: green;
+//  color: white;
+//}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+tr mat-row {
+  font-weight: bold;
+}
+#delete {
+  color: red;
+}
+#edit {
+  color: green;
+}
+mat-form-field {
+  width: 200px;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ViewVrednovanje.
+    -->
+    <changeSet author="Drasko" id="view-vrednovanje0">
+        <createView catalogName="tenderi" schemaName="public" viewName="view_vrednovanje0">
+            SELECT
+            ponude.id,
+            ponude.sifra_postupka,
+            ponude.sifra_ponude,
+            ponude.broj_partije,
+            specifikacije.atc,
+            specifikacije.inn,
+            ponude.zasticeni_naziv,
+            specifikacije.farmaceutski_oblik_lijeka,
+            specifikacije.jacina_lijeka,
+            specifikacije.pakovanje,
+            specifikacije.jedinica_mjere,
+            specifikacije.trazena_kolicina,
+            specifikacije.procijenjena_vrijednost,
+            ponude.ponudjena_vrijednost,
+            ponude.rok_isporuke,
+            ponude.naziv_proizvodjaca,
+            ponude.sifra_ponudjaca,
+            ((((90) ::numeric) ::double precision * min(ponude.ponudjena_vrijednost) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
+            ((((10) ::numeric) ::double precision * (min(ponude.rok_isporuke) over(partition BY ponude.broj_partije, ponude.sifra_postupka)) ::double precision) / (ponude.rok_isporuke) ::double precision) AS bod_rok,
+            ponudjaci.naziv_ponudjaca
+            FROM
+            ponude
+            INNER JOIN specifikacije ON (ponude.sifra_postupka = specifikacije.sifra_postupka)
+            AND (ponude.broj_partije = specifikacije.broj_partije)
+            INNER JOIN ponudjaci ON (ponude.sifra_ponudjaca = ponudjaci.id)
+
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>
