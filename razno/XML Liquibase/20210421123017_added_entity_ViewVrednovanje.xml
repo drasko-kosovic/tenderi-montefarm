@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ViewVrednovanje.
+    -->
+    <changeSet author="Drasko" id="view-vrednovanje">
+        <createView catalogName="vrednovanje-esjn" schemaName="public" viewName="view_vrednovanje">
+            SELECT ponude.id,
+            ponude.sifra_postupka,
+            ponude.sifra_ponude,
+            ponude.broj_partije,
+            specifikacije.atc,
+            specifikacije.inn,
+            ponude.zastceni_naziv,
+            specifikacije.farmaceutski_oblik_lijeka,
+            specifikacije.jacina_lijeka,
+            specifikacije.pakovanje,
+            specifikacije.trazena_kolicina,
+            specifikacije.procijenjena_vrijednost,
+            ponude.ponudjena_vrijednost,
+            ponude.rok_isporuke,
+            ponude.naziv_ponudjaca,
+            ponude.naziv_proizvodjaca,
+            ((((90)::numeric)::double precision * min(ponude.ponudjena_vrijednost) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) AS bod_cijena,
+            ((((10)::numeric)::double precision * (min(ponude.rok_isporuke) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka))::double precision) / (ponude.rok_isporuke)::double precision) AS bod_rok,
+            (((((90)::numeric)::double precision * min(ponude.ponudjena_vrijednost) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.ponudjena_vrijednost) + ((((10 * min(ponude.rok_isporuke) OVER (PARTITION BY ponude.broj_partije, ponude.sifra_postupka)) / ponude.rok_isporuke))::numeric)::double precision) AS bod_ukupno
+            FROM (ponude
+            JOIN specifikacije ON (((ponude.sifra_postupka = specifikacije.sifra_postupka) AND (ponude.broj_partije = specifikacije.broj_partije))))
+        </createView>
+    </changeSet>
+
+</databaseChangeLog>

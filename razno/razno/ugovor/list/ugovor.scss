@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+tr.mat-row:hover {
+  background-color: yellow;
+}
+tr {
+  cursor: pointer;
+}
+tr.mat-footer-row {
+  font-weight: bold;
+}
+#delete {
+  color: red;
+}
+#edit {
+  color: green;
+}
+.example-container mat-elevation-z24 {
+  margin-right: 200px;
+}

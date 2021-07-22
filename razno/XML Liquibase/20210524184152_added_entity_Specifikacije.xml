@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Specifikacije.
+    -->
+    <changeSet id="20210524184152-1" author="jhipster">
+        <createTable tableName="specifikacije">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sifra_postupka" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_partije" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="atc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="inn" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="farmaceutski_oblik_lijeka" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="jacina_lijeka" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="trazena_kolicina" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="pakovanje" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="procijenjena_vrijednost" type="double">
+                <constraints nullable="false" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

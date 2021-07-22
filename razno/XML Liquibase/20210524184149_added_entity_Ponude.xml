@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Ponude.
+    -->
+    <changeSet id="20210524184149-1" author="jhipster">
+        <createTable tableName="ponude">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sifra_postupka" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="sifra_ponude" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_partije" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="naziv_proizvodjaca" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="zastceni_naziv" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ponudjena_vrijednost" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="rok_isporuke" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="selected" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="datum_ponude" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="ponudjaci_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_ponude__ponudjaci_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

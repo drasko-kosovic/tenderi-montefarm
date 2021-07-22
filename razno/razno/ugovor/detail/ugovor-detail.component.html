@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ugovor">
+      <h2 data-cy="ugovorDetailsHeading"><span jhiTranslate="tenderiApp.ugovor.detail.title">Ugovor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ugovor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.brojUgovora">Broj Ugovora</span></dt>
+        <dd>
+          <span>{{ ugovor.brojUgovora }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.datumUgovora">Datum Ugovora</span></dt>
+        <dd>
+          <span>{{ ugovor.datumUgovora | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.predmetUgovora">Predmet Ugovora</span></dt>
+        <dd>
+          <span>{{ ugovor.predmetUgovora }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.nazivPonudjaca">Naziv Ponudjaca</span></dt>
+        <dd>
+          <span>{{ ugovor.nazivPonudjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.brojDatumTenderskeDokumntacije">Broj Datum Tenderske Dokumntacije</span></dt>
+        <dd>
+          <span>{{ ugovor.brojDatumTenderskeDokumntacije }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.brojDatumOdlukeIzbora">Broj Datum Odluke Izbora</span></dt>
+        <dd>
+          <span>{{ ugovor.brojDatumOdlukeIzbora }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.brojDatumPonude">Broj Datum Ponude</span></dt>
+        <dd>
+          <span>{{ ugovor.brojDatumPonude }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.iznosUgovoraBezPdf">Iznos Ugovora Bez Pdf</span></dt>
+        <dd>
+          <span>{{ ugovor.iznosUgovoraBezPdf }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ugovor.sifraPostupka">Sifra Postupka</span></dt>
+        <dd>
+          <span>{{ ugovor.sifraPostupka }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ugovor', ugovor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Ugovor.
+    -->
+    <changeSet id="20210529051416-1" author="jhipster">
+        <createTable tableName="ugovor">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="broj_ugovora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="datum_ugovora" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="predmet_ugovora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+           <column name="broj_datum_tenderske_dokumntacije" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_datum_odluke_izbora" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="broj_datum_ponude" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="iznos_ugovora_bez_pdf" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="sifra_postupka" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="sifra_ponude" type="integer">
+                <constraints nullable="false" />
+            </column>
+           <column name="ponudjaci_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_ugovor__ponudjaci_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

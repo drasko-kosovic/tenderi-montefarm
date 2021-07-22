@@ -1,0 +1,10 @@
+npm install --save @angular/cdk @angular/animations @angular/animations/browser
+
+npm install -E @angular/material@11.2.6 @angular/flex-layout@11.0.0-beta.33 hammerjs@2.0.8 @angular/cdk@11.2.6 tic-tac-toe-minimax@1.0.8
+
+font jasper pdf   DejaVu Sans
+
+java.time.LocalDate
+
+kad cekiram to se vraca u stanje koje je bilo prije
+ne cekirno znaci da osatavljem nove promjene za te stavke

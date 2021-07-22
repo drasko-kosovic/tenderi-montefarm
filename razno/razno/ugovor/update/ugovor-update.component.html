@@ -1,0 +1,330 @@
+<mat-card id="drasko" class="example-container mat-elevation-z24">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <h2 id="jhi-ugovor-heading" data-cy="UgovorCreateUpdateHeading" jhiTranslate="tenderiApp.ugovor.home.createOrEditLabel">
+          Create or edit a Ugovor
+        </h2>
+
+        <div>
+          <jhi-alert-error></jhi-alert-error>
+
+          <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+            <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Broj Ugovora</mat-label>
+              <input matInput name="brojUgovora" id="brojUgovora" placeholder="" formControlName="brojUgovora" #brojUgovora />
+            </mat-form-field>
+            <div
+              *ngIf="editForm.get('brojUgovora')!.invalid && (editForm.get('brojUgovora')!.dirty || editForm.get('brojUgovora')!.touched)"
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('brojUgovora')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-control-label" jhiTranslate="tenderiApp.ugovor.datumUgovora" for="field_datumUgovora">Datum Ugovora</label>
+            <div class="input-group">
+              <input
+                id="field_datumUgovora"
+                data-cy="datumUgovora"
+                type="text"
+                class="form-control"
+                name="datumUgovora"
+                ngbDatepicker
+                #datumUgovoraDp="ngbDatepicker"
+                formControlName="datumUgovora"
+              />
+              <span class="input-group-append">
+                <button type="button" class="btn btn-secondary" (click)="datumUgovoraDp.toggle()">
+                  <fa-icon icon="calendar-alt"></fa-icon>
+                </button>
+              </span>
+            </div>
+            <div
+              *ngIf="
+                editForm.get('datumUgovora')!.invalid && (editForm.get('datumUgovora')!.dirty || editForm.get('datumUgovora')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('datumUgovora')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Predmet Ugovora</mat-label>
+              <input matInput name="predmetUgovora" id="predmetUgovora" placeholder="" formControlName="predmetUgovora" #predmetUgovora />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('predmetUgovora')!.invalid &&
+                (editForm.get('predmetUgovora')!.dirty || editForm.get('predmetUgovora')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('predmetUgovora')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Naziv Ponudjac</mat-label>
+              <input matInput name="nazivPonudjaca" id="nazivPonudjaca" placeholder="" formControlName="nazivPonudjaca" #nazivPonudjac />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('nazivPonudjaca')!.invalid &&
+                (editForm.get('nazivPonudjaca')!.dirty || editForm.get('nazivPonudjaca')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('nazivPonudjaca')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Broj i DatumTenderske Dokumntacije</mat-label>
+              <input
+                matInput
+                name="brojDatumTenderskeDokumntacije"
+                id="brojDatumTenderskeDokumntacije"
+                placeholder=""
+                formControlName="brojDatumTenderskeDokumntacije"
+                #brojDatumTenderskeDokumntacije
+              />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('brojDatumTenderskeDokumntacije')!.invalid &&
+                (editForm.get('brojDatumTenderskeDokumntacije')!.dirty || editForm.get('brojDatumTenderskeDokumntacije')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('brojDatumTenderskeDokumntacije')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Broj i Datum Odluke o Izboru</mat-label>
+              <input
+                matInput
+                name="brojDatumOdlukeIzbora"
+                id="brojDatumOdlukeIzbora"
+                placeholder=""
+                formControlName="brojDatumOdlukeIzbora"
+                #nbrojDatumOdlukeIzbora
+              />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('brojDatumOdlukeIzbora')!.invalid &&
+                (editForm.get('brojDatumOdlukeIzbora')!.dirty || editForm.get('brojDatumOdlukeIzbora')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('brojDatumOdlukeIzbora')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Broj i Datum Ponude</mat-label>
+              <input
+                matInput
+                name="brojDatumPonude"
+                id="brojDatumPonude"
+                placeholder=""
+                formControlName="brojDatumPonude"
+                #brojDatumPonude
+              />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('brojDatumPonude')!.invalid &&
+                (editForm.get('brojDatumPonude')!.dirty || editForm.get('brojDatumPonude')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('brojDatumPonude')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>iznos Ugovora Bez Pdf</mat-label>
+              <input
+                matInput
+                name="iznosUgovoraBezPdf"
+                id="iznosUgovoraBezPdf"
+                placeholder=""
+                formControlName="iznosUgovoraBezPdf"
+                #iznosUgovoraBezPdf
+              />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('iznosUgovoraBezPdf')!.invalid &&
+                (editForm.get('iznosUgovoraBezPdf')!.dirty || editForm.get('iznosUgovoraBezPdf')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('iznosUgovoraBezPdf')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('iznosUgovoraBezPdf')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+              >
+                This field should be a number.
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Sifra Postupka</mat-label>
+              <input matInput name="sifraPostupka" id="sifraPostupka" placeholder="" formControlName="sifraPostupka" #sifraPostupka />
+            </mat-form-field>
+            <div
+              *ngIf="
+                editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)
+              "
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('sifraPostupka')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('sifraPostupka')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+              >
+                This field should be a number.
+              </small>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Sifra Ponudjaca</mat-label>
+                <input matInput name="sifraPonudjaca" id="sifraPonudjaca" placeholder="" formControlName="sifraPonudjaca" #sifraPonudjaca />
+              </mat-form-field>
+              <div
+                *ngIf="
+                  editForm.get('sifraPostupka')!.invalid &&
+                  (editForm.get('sifraPonudjaca')!.dirty || editForm.get('sifraPonudjaca')!.touched)
+                "
+              >
+                <small
+                  class="form-text text-danger"
+                  *ngIf="editForm.get('sifraPonudjaca')?.errors?.required"
+                  jhiTranslate="entity.validation.required"
+                >
+                  This field is required.
+                </small>
+                <small
+                  class="form-text text-danger"
+                  [hidden]="!editForm.get('sifraPonudjaca')?.errors?.number"
+                  jhiTranslate="entity.validation.number"
+                >
+                  This field should be a number.
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Sifra Ponude</mat-label>
+              <input matInput name="sifraPonude" id="sifraPonude" placeholder="" formControlName="sifraPonude" #sifraPonude />
+            </mat-form-field>
+            <div
+              *ngIf="editForm.get('sifraPonude')!.invalid && (editForm.get('sifraPonude')!.dirty || editForm.get('sifraPonude')!.touched)"
+            >
+              <small
+                class="form-text text-danger"
+                *ngIf="editForm.get('sifraPonude')?.errors?.required"
+                jhiTranslate="entity.validation.required"
+              >
+                This field is required.
+              </small>
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('sifraPonude')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+              >
+                This field should be a number.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button type="button" id="cancel-save" mat-raised-button (click)="previousState()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
+
+          <button
+            type="submit"
+            id="save-entity"
+            data-cy="entityCreateSaveButton"
+            [disabled]="editForm.invalid || isSaving"
+            mat-raised-button
+            color="primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-card>
