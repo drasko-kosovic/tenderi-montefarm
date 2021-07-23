@@ -10,10 +10,13 @@ import { Account } from 'app/core/auth/account.model';
 import { UserManagementService } from '../service/user-management.service';
 import { User } from '../user-management.model';
 import { UserManagementDeleteDialogComponent } from '../delete/user-management-delete-dialog.component';
+import { UserManagementUpdateComponent } from '../update/user-management-update.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'jhi-user-mgmt',
   templateUrl: './user-management.component.html',
+  styleUrls: ['./user-managment.scss'],
 })
 export class UserManagementComponent implements OnInit {
   currentAccount: Account | null = null;
@@ -30,7 +33,8 @@ export class UserManagementComponent implements OnInit {
     private accountService: AccountService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +49,17 @@ export class UserManagementComponent implements OnInit {
   trackIdentity(index: number, item: User): number {
     return item.id!;
   }
-
+  addNew(): any {
+    this.dialog.open(UserManagementUpdateComponent, {});
+    // dialogRef.afterClosed().subscribe(
+    //   // eslint-disable-next-line no-console
+    //   val =>
+    //     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
+    //       this.dataSource.data = res.body ?? [];
+    //       this.postupaks = res;
+    //     })
+    // );
+  }
   deleteUser(user: User): void {
     const modalRef = this.modalService.open(UserManagementDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.user = user;

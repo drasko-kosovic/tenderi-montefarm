@@ -1,9 +1,9 @@
-<div class="row justify-content-center">
-  <div class="col-8">
-    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2 id="myUserLabel" jhiTranslate="userManagement.home.createOrEditLabel">Create or edit a User</h2>
+<div id="conteiner" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="example-container mat-elevation-z24">
+    <mat-card-title>Korisnik</mat-card-title>
 
-      <div *ngIf="user">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <div>
         <jhi-alert-error></jhi-alert-error>
 
         <div class="form-group" [hidden]="!user.id">
@@ -11,9 +11,8 @@
           <input type="text" class="form-control" name="id" formControlName="id" readonly />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="userManagement.login">Login</label>
-          <input type="text" class="form-control" name="login" formControlName="login" />
+        <mat-form-field>
+          <input type="text" matInput name="login" formControlName="login" placeholder="Korisnik" />
 
           <div *ngIf="editForm.get('login')!.invalid && (editForm.get('login')!.dirty || editForm.get('login')!.touched)">
             <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
@@ -37,11 +36,11 @@
               This field can only contain letters, digits and e-mail addresses.
             </small>
           </div>
-        </div>
+        </mat-form-field>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="userManagement.firstName">First Name</label>
-          <input type="text" class="form-control" name="firstName" formControlName="firstName" />
+        <mat-form-field>
+          <!--            <label class="form-control-label" jhiTranslate="userManagement.firstName">First Name</label>-->
+          <input type="text" matInput name="firstName" formControlName="firstName" placeholder="Ime" />
 
           <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
             <small
@@ -53,11 +52,10 @@
               This field cannot be longer than 50 characters.
             </small>
           </div>
-        </div>
+        </mat-form-field>
 
-        <div class="form-group">
-          <label jhiTranslate="userManagement.lastName">Last Name</label>
-          <input type="text" class="form-control" name="lastName" formControlName="lastName" />
+        <mat-form-field>
+          <input placeholder="Prezime" matInput type="text" name="lastName" formControlName="lastName" />
 
           <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
             <small
@@ -69,11 +67,10 @@
               This field cannot be longer than 50 characters.
             </small>
           </div>
-        </div>
+        </mat-form-field>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="userManagement.email">Email</label>
-          <input type="email" class="form-control" name="email" formControlName="email" />
+        <mat-form-field>
+          <input placeholder="Email" type="email" matInput name="email" formControlName="email" />
 
           <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
             <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
@@ -106,7 +103,7 @@
               Your email is invalid.
             </small>
           </div>
-        </div>
+        </mat-form-field>
 
         <div class="form-check">
           <label class="form-check-label" for="activated">
@@ -121,13 +118,12 @@
             <span jhiTranslate="userManagement.activated">Activated</span>
           </label>
         </div>
-
-        <div class="form-group" *ngIf="languages && languages.length > 0">
-          <label jhiTranslate="userManagement.langKey">Lang Key</label>
-          <select class="form-control" id="langKey" name="langKey" formControlName="langKey">
-            <option *ngFor="let language of languages" [value]="language">{{ language | findLanguageFromKey }}</option>
-          </select>
-        </div>
+        <mat-form-field appearance="fill">
+          <mat-label jhiTranslate="userManagement.langKey">Lang Key</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let language of languages" [value]="language">{{ language | findLanguageFromKey }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <div class="form-group">
           <label jhiTranslate="userManagement.profiles">Profiles</label>
@@ -136,16 +132,17 @@
           </select>
         </div>
       </div>
+      <mat-card-actions>
+        <div *ngIf="user">
+          <button type="button" mat-raised-button color="warn" (click)="previousState()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          </button>
 
-      <div *ngIf="user">
-        <button type="button" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-        </button>
-
-        <button type="submit" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-        </button>
-      </div>
+          <button type="submit" [disabled]="editForm.invalid || isSaving" mat-raised-button color="primary">
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      </mat-card-actions>
     </form>
-  </div>
+  </mat-card>
 </div>

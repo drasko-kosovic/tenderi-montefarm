@@ -7,9 +7,12 @@ import { UserManagementDetailComponent } from './detail/user-management-detail.c
 import { UserManagementUpdateComponent } from './update/user-management-update.component';
 import { UserManagementDeleteDialogComponent } from './delete/user-management-delete-dialog.component';
 import { userManagementRoute } from './user-management.route';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FlexModule } from '@angular/flex-layout';
+import { JhMaterialModule } from '../../shared/jh-material.module';
 
 @NgModule({
-  imports: [SharedModule, RouterModule.forChild(userManagementRoute)],
+  imports: [SharedModule, RouterModule.forChild(userManagementRoute), FlexModule, JhMaterialModule],
   declarations: [
     UserManagementComponent,
     UserManagementDetailComponent,
@@ -17,5 +20,9 @@ import { userManagementRoute } from './user-management.route';
     UserManagementDeleteDialogComponent,
   ],
   entryComponents: [UserManagementDeleteDialogComponent],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },
+  ],
 })
 export class UserManagementModule {}

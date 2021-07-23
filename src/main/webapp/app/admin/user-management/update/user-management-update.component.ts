@@ -5,10 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { LANGUAGES } from 'app/config/language.constants';
 import { User } from '../user-management.model';
 import { UserManagementService } from '../service/user-management.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { UserManagementComponent } from '../list/user-management.component';
 
 @Component({
   selector: 'jhi-user-mgmt-update',
   templateUrl: './user-management-update.component.html',
+  styleUrls: ['./user-managment-update.scss'],
 })
 export class UserManagementUpdateComponent implements OnInit {
   user!: User;
@@ -35,7 +38,12 @@ export class UserManagementUpdateComponent implements OnInit {
     authorities: [],
   });
 
-  constructor(private userService: UserManagementService, private route: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    private userService: UserManagementService,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<UserManagementComponent>
+  ) {}
 
   ngOnInit(): void {
     this.route.data.subscribe(({ user }) => {
@@ -49,7 +57,9 @@ export class UserManagementUpdateComponent implements OnInit {
     });
     this.userService.authorities().subscribe(authorities => (this.authorities = authorities));
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   previousState(): void {
     window.history.back();
   }
