@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+tr.mat-row:hover {
+  background-color: lightgrey;
+}
+tr {
+  cursor: pointer;
+}
+tr.mat-footer-row {
+  font-weight: bold;
+}

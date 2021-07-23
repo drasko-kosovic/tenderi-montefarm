@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ponude">
+      <h2 data-cy="ponudeDetailsHeading"><span jhiTranslate="tenderiApp.ponude.detail.title">Ponude</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ponude.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.sifraPostupka">Sifra Postupka</span></dt>
+        <dd>
+          <span>{{ ponude.sifraPostupka }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.sifraPonude">Sifra Ponude</span></dt>
+        <dd>
+          <span>{{ ponude.sifraPonude }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.brojPartije">Broj Partije</span></dt>
+        <dd>
+          <span>{{ ponude.brojPartije }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.nazivPonudjaca">Sifra Ponudjaca</span></dt>
+        <dd>
+          <span>{{ ponude.sifraPonudjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.nazivProizvodjaca">Naziv Proizvodjaca</span></dt>
+        <dd>
+          <span>{{ ponude.nazivProizvodjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.zastceniNaziv">Zastceni Naziv</span></dt>
+        <dd>
+          <span>{{ ponude.zasticeniNaziv }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.ponudjenaVrijednost">Ponudjena Vrijednost</span></dt>
+        <dd>
+          <span>{{ ponude.ponudjenaVrijednost }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponude.rokIsporuke">Rok Isporuke</span></dt>
+        <dd>
+          <span>{{ ponude.rokIsporuke }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ponude', ponude.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="naruclac">
+      <h2 data-cy="naruclacDetailsHeading"><span jhiTranslate="tenderiApp.naruclac.detail.title">Naruclac</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ naruclac.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.naziv">Naziv</span></dt>
+        <dd>
+          <span>{{ naruclac.naziv }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.adresa">Adresa</span></dt>
+        <dd>
+          <span>{{ naruclac.adresa }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.racun">Racun</span></dt>
+        <dd>
+          <span>{{ naruclac.racun }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.telefon">Telefon</span></dt>
+        <dd>
+          <span>{{ naruclac.telefon }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.pib">Pib</span></dt>
+        <dd>
+          <span>{{ naruclac.pib }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.pdv">Pdv</span></dt>
+        <dd>
+          <span>{{ naruclac.pdv }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.odgovornoLiceNarucioca">Odgovorno Lice Narucioca</span></dt>
+        <dd>
+          <span>{{ naruclac.odgovornoLiceNarucioca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.naruclac.email">Email</span></dt>
+        <dd>
+          <span>{{ naruclac.email }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/naruclac', naruclac.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

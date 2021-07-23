@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ponudjaci">
+      <h2 data-cy="ponudjaciDetailsHeading"><span jhiTranslate="tenderiApp.ponudjaci.detail.title">Ponudjaci</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ponudjaci.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponudjaci.nazivPonudjaca">Naziv Ponudjaca</span></dt>
+        <dd>
+          <span>{{ ponudjaci.nazivPonudjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponudjaci.odgovornoLice">Odgovorno Lice</span></dt>
+        <dd>
+          <span>{{ ponudjaci.odgovornoLice }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponudjaci.adresaPonudjaca">Adresa Ponudjaca</span></dt>
+        <dd>
+          <span>{{ ponudjaci.adresaPonudjaca }}</span>
+        </dd>
+        <dt><span jhiTranslate="tenderiApp.ponudjaci.bankaRacun">Banka Racun</span></dt>
+        <dd>
+          <span>{{ ponudjaci.bankaRacun }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ponudjaci', ponudjaci.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
