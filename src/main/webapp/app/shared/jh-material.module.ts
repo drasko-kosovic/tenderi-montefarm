@@ -23,6 +23,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { getDutchPaginatorIntl } from '../../dutch-paginator-intl';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -79,5 +81,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatFormFieldModule,
   ],
+  providers: [{ provide: MatPaginatorIntl, useValue: getDutchPaginatorIntl() }],
 })
 export class JhMaterialModule {}
