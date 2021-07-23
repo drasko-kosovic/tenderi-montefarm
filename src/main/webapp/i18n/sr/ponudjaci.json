@@ -1,0 +1,27 @@
+{
+  "tenderiApp": {
+    "ponudjaci": {
+      "home": {
+        "title": "Ponudjacis",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Ponudjaci",
+        "createOrEditLabel": "Kreirajte ili izmenite Ponudjaci",
+        "notFound": "No Ponudjacis found"
+      },
+      "created": "Kreiran je novi Ponudjaci pod nazivom {{ param }}",
+      "updated": "Ponudjaci pod nazivom {{ param }} je ažuriran",
+      "deleted": "Ponudjaci pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Ponudjaci pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Ponudjaci"
+      },
+      "id": "ID",
+      "nazivPonudjaca": "Naziv Ponudjaca",
+      "odgovornoLice": "Odgovorno Lice",
+      "adresaPonudjaca": "Adresa Ponudjaca",
+      "bankaRacun": "Banka Racun"
+    }
+  }
+}

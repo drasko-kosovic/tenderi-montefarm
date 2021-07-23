@@ -1,0 +1,24 @@
+{
+  "tenderiApp": {
+    "ugovori": {
+      "home": {
+        "title": "Ugovoris",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ugovori",
+        "createOrEditLabel": "Create or edit a Ugovori",
+        "notFound": "No Ugovoris found"
+      },
+      "created": "A new Ugovori is created with identifier {{ param }}",
+      "updated": "A Ugovori is updated with identifier {{ param }}",
+      "deleted": "A Ugovori is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ugovori {{ id }}?"
+      },
+      "detail": {
+        "title": "Ugovori"
+      },
+      "id": "ID",
+      "brojUgovora": "Broj Ugovora"
+    }
+  }
+}

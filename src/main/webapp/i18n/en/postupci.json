@@ -1,0 +1,28 @@
+{
+  "tenderiApp": {
+    "postupci": {
+      "home": {
+        "title": "Postupcis",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Postupci",
+        "createOrEditLabel": "Create or edit a Postupci",
+        "notFound": "No Postupcis found"
+      },
+      "created": "A new Postupci is created with identifier {{ param }}",
+      "updated": "A Postupci is updated with identifier {{ param }}",
+      "deleted": "A Postupci is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Postupci {{ id }}?"
+      },
+      "detail": {
+        "title": "Postupci"
+      },
+      "id": "ID",
+      "sifraPostupka": "Sifra Postupka",
+      "brojTendera": "Broj Tendera",
+      "opisPostupka": "Opis Postupka",
+      "vrstaPostupka": "Vrsta Postupka",
+      "datumObjave": "Datum Objave"
+    }
+  }
+}

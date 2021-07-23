@@ -1,0 +1,32 @@
+{
+  "tenderiApp": {
+    "ugovor": {
+      "home": {
+        "title": "Ugovors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ugovor",
+        "createOrEditLabel": "Create or edit a Ugovor",
+        "notFound": "No Ugovors found"
+      },
+      "created": "A new Ugovor is created with identifier {{ param }}",
+      "updated": "A Ugovor is updated with identifier {{ param }}",
+      "deleted": "A Ugovor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ugovor {{ id }}?"
+      },
+      "detail": {
+        "title": "Ugovor"
+      },
+      "id": "ID",
+      "brojUgovora": "Broj Ugovora",
+      "datumUgovora": "Datum Ugovora",
+      "predmetUgovora": "Predmet Ugovora",
+      "nazivPonudjaca": "Naziv Ponudjaca",
+      "brojDatumTenderskeDokumntacije": "Broj Datum Tenderske Dokumntacije",
+      "brojDatumOdlukeIzbora": "Broj Datum Odluke Izbora",
+      "brojDatumPonude": "Broj Datum Ponude",
+      "iznosUgovoraBezPdf": "Iznos Ugovora Bez Pdf",
+      "sifraPostupka": "Sifra Postupka"
+    }
+  }
+}

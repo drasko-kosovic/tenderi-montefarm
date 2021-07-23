@@ -1,0 +1,33 @@
+{
+  "tenderiApp": {
+    "viewPonude": {
+      "home": {
+        "title": "View Ponudes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new View Ponude",
+        "createOrEditLabel": "Create or edit a View Ponude",
+        "notFound": "No View Ponudes found"
+      },
+      "created": "A new View Ponude is created with identifier {{ param }}",
+      "updated": "A View Ponude is updated with identifier {{ param }}",
+      "deleted": "A View Ponude is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete View Ponude {{ id }}?"
+      },
+      "detail": {
+        "title": "View Ponude"
+      },
+      "id": "ID",
+      "sifraPostupka": "Sifra Postupka",
+      "sifraPonude": "Sifra Ponude",
+      "brojPartije": "Broj Partije",
+      "sifraPonudjaca": "Sifra Ponudjaca",
+      "nazivPonudjaca": "Naziv Ponudjaca",
+      "zasticeniNaziv": "Zasticeni Naziv",
+      "ponudjenaVrijednost": "Ponudjena Vrijednost",
+      "rokIsporuke": "Rok Isporuke",
+      "datumPonude": "Datum Ponude",
+      "nazivProizvodjaca": "Naziv Proizvodjaca"
+    }
+  }
+}

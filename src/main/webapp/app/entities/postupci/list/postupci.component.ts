@@ -24,7 +24,6 @@ export class PostupciComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   clickedRows = new Set<IPostupci>();
-
   constructor(
     protected postupciService: PostupciService,
     protected activatedRoute: ActivatedRoute,
@@ -32,6 +31,7 @@ export class PostupciComponent implements OnInit, AfterViewInit {
     protected modalService: NgbModal,
     public dialog: MatDialog
   ) {}
+
   loadAll(): void {
     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {
       this.dataSource.data = res.body ?? [];
@@ -43,7 +43,7 @@ export class PostupciComponent implements OnInit, AfterViewInit {
     brojTendera?: string | null,
     opisPostupka?: string,
     vrstaPostupka?: string,
-    datumObjave?:Date
+    datumObjave?: Date
   ): any {
     const dialogRef = this.dialog.open(PostupciUpdateComponent, {
       data: {

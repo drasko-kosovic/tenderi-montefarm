@@ -1,0 +1,31 @@
+{
+  "tenderiApp": {
+    "ponude": {
+      "home": {
+        "title": "Ponudes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Ponude",
+        "createOrEditLabel": "Kreirajte ili izmenite Ponude",
+        "notFound": "No Ponudes found"
+      },
+      "created": "Kreiran je novi Ponude pod nazivom {{ param }}",
+      "updated": "Ponude pod nazivom {{ param }} je ažuriran",
+      "deleted": "Ponude pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Ponude pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Ponude"
+      },
+      "id": "ID",
+      "sifraPostupka": "Sifra Postupka",
+      "sifraPonude": "Sifra Ponude",
+      "brojPartije": "Broj Partije",
+      "nazivPonudjaca": "Naziv Ponudjaca",
+      "nazivProizvodjaca": "Naziv Proizvodjaca",
+      "zastceniNaziv": "Zastceni Naziv",
+      "ponudjenaVrijednost": "Ponudjena Vrijednost",
+      "rokIsporuke": "Rok Isporuke"
+    }
+  }
+}

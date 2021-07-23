@@ -45,11 +45,10 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: smtp.mailgun.org
-    port: 587
-    username: postmaster@sandboxf7669cbcfc8447b19a38b3e89acdbe67.mailgun.org #Replace this field with your Gmail username.
-    password: a207552d1433af096c654ecfc421a634-e31dc3cc-62632eb1 #Replace this field with your Gmail password/App password.
-    protocol: smtp
+    host: localhost
+    port: 25
+    username:
+    password:
   thymeleaf:
     cache: true
 
@@ -102,12 +101,12 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: ZTVlN2JmMTNjMzkxOTFhODAxZDUwMDQ4NTc4MjI4NDQ0MDRkY2NlODlkZDU4YTFlZTg2NTE5YjlkYmFkMWUzZDUxNGMxOGMyNGE1NDNkNDZkMmY5ODRjZTUyYjQ4YzI0M2M2MDIyYzFjYWZiNjhjN2Y2NDlkNzJlMWM5ZWU3ZmY=
+        base64-secret: MTI5MTc4NWMzMjgxZmE3NWYyMWY2NTcwMTkxODk3NjU5NzIwOWE4ZDkxYWJkOTgyOGZhYmE5ODRjNTE2ZDk3MzEyYjI2MDk2ZWJhMzEzYmJmMmRlZDY0NTIxZmM0ZTZkN2U4MzU0YTQ4NGE0Nzg1YTliNDU3YWVmMjVkOTZlOWE=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    base-url: https://montefarm.herokuapp.com # Modify according to your server's URL
+    base-url: http://my-server-url-to-change # Modify according to your server's URL
   logging:
     use-json-format: false # By default, logs are not in Json format
     logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration

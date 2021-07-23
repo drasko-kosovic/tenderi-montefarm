@@ -1,5 +1,9 @@
 package tenderi.service;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -19,11 +23,6 @@ import tenderi.security.AuthoritiesConstants;
 import tenderi.security.SecurityUtils;
 import tenderi.service.dto.AdminUserDTO;
 import tenderi.service.dto.UserDTO;
-
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Service class for managing users.

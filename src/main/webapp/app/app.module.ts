@@ -28,24 +28,9 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableExporterModule } from 'mat-table-exporter';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { HomeTenderiComponent } from './entities/home-tenderi/home-tenderi.component';
-import { UgovorModule } from './entities/ugovor/ugovor.module';
-import { HvalePonudeModule } from './entities/hvale-ponude/hvale-ponude.module';
-import { PrvorangiraniModule } from './entities/prvorangirani/prvorangirani.module';
-import { ViewPonudeModule } from './entities/view-ponude/view-ponude.module';
-import { SpecifikacijeModule } from './entities/specifikacije/specifikacije.module';
-import { ViewVrednovanjeModule } from './entities/view-vrednovanje/view-vrednovanje.module';
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    FlexLayoutModule,
-    MatTableExporterModule,
-    BrowserAnimationsModule,
     BrowserModule,
     SharedModule,
     HomeModule,
@@ -67,12 +52,6 @@ import { ViewVrednovanjeModule } from './entities/view-vrednovanje/view-vrednova
         useFactory: missingTranslationHandler,
       },
     }),
-    UgovorModule,
-    HvalePonudeModule,
-    PrvorangiraniModule,
-    ViewPonudeModule,
-    SpecifikacijeModule,
-    ViewVrednovanjeModule,
   ],
   providers: [
     Title,
@@ -80,15 +59,7 @@ import { ViewVrednovanjeModule } from './entities/view-vrednovanje/view-vrednova
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
   ],
-  declarations: [
-    MainComponent,
-    NavbarComponent,
-    ErrorComponent,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    FooterComponent,
-    HomeTenderiComponent,
-  ],
+  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
 })
 export class AppModule {

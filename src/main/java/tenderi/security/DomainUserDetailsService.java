@@ -1,5 +1,7 @@
 package tenderi.security;
 
+import java.util.*;
+import java.util.stream.Collectors;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import tenderi.domain.User;
 import tenderi.repository.UserRepository;
-
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Authenticate a user from the database.

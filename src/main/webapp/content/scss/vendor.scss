@@ -9,45 +9,6 @@ eg $input-color: red;
 @import 'bootstrap-variables';
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
-//@import '~bootswatch/dist/materia/bootswatch';
+@import '~bootswatch/dist/materia/bootswatch';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
-@import '~@angular/material/theming';
-@include mat-core();
-$mat-custom-theme: (
-  50: #e8f5e9,
-  100: #c8e6c9,
-  200: #a5d6a7,
-  300: #81c784,
-  400: #66bb6a,
-  500: #4caf50,
-  600: #43a047,
-  700: #388e3c,
-  800: #2e7d32,
-  900: #323744,
-  A100: #b9f6ca,
-  A200: #69f0ae,
-  A400: #00e676,
-  A700: #00c853,
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
-  ),
-);
-
-$primary: mat-palette($mat-custom-theme, 900);
-$accent: mat-palette($mat-pink, A200, A100, A400);
-$theme: mat-light-theme($primary, $accent);
-@include angular-material-theme($theme);

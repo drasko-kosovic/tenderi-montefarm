@@ -1,7 +1,9 @@
-<div >
+<div>
   <mat-card class="example-container mat-elevation-z24">
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Postupak" (click)="addNew()">Dodaj Postupak</mat-button-toggle>
+      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Postupak" (click)="addNew()"
+        >Dodaj Postupak</mat-button-toggle
+      >
     </mat-button-toggle-group>
     <mat-divider></mat-divider>
 
@@ -13,14 +15,14 @@
     <table mat-table id="ExampleTable" [dataSource]="dataSource" matSort matSortStart="desc">
       <ng-container matColumnDef="sifra postupka">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Sifra Postupka</th>
-        <td mat-cell *matCellDef="let element" >
+        <td mat-cell *matCellDef="let element">
           {{ element.sifraPostupka }}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
       <ng-container matColumnDef="broj tendera">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Broj Tendera</th>
-        <td mat-cell *matCellDef="let element" >
+        <td mat-cell *matCellDef="let element">
           {{ element.brojTendera }}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
@@ -28,22 +30,21 @@
 
       <ng-container matColumnDef="opis postupka">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Opis Postupka</th>
-
-        <td mat-cell *matCellDef="let element" >
+        <td mat-cell *matCellDef="let element">
           {{ element.opisPostupka }}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
       <ng-container matColumnDef="vrsta postupka">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Vrsta Postupka</th>
-        <td mat-cell *matCellDef="let element" >
+        <td mat-cell *matCellDef="let element">
           {{ element.vrstaPostupka }}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
       <ng-container matColumnDef="datum objave">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Datum Objave</th>
-        <td mat-cell *matCellDef="let element" >
+        <td mat-cell *matCellDef="let element">
           {{ element.datumObjave }}
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
@@ -62,34 +63,25 @@
             *jhiHasAnyAuthority="'ROLE_ADMIN'"
             id="edit"
             (click)="
-            startEdit(
-              element.id,
-              element.sifraPostupka,
-              element.brojTendera,
-              element.opisPostupka,
-              element.vrstaPostupka,
-              element.datumObjave
-            )
-          "
-          >edit</mat-icon
+              startEdit(
+                element.id,
+                element.sifraPostupka,
+                element.brojTendera,
+                element.opisPostupka,
+                element.vrstaPostupka,
+                element.datumObjave
+              )
+            "
+            >edit</mat-icon
           >
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <tr  mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-      <tr  mat-row  (click)="clickedRows.add(row)"
-          *matRowDef="let row; columns: displayedColumns"  ></tr>
-
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['/tenderi-home', row.sifraPostupka]"></tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
   </mat-card>
-
 </div>
-
-<ul>
-  <li *ngFor="let clickedRow of clickedRows">
-    Clicked on {{clickedRow.sifraPostupka}}
-  </li>
-</ul>

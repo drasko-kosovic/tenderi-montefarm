@@ -1,0 +1,31 @@
+{
+  "tenderiApp": {
+    "naruclac": {
+      "home": {
+        "title": "Naruclacs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Naruclac",
+        "createOrEditLabel": "Kreirajte ili izmenite Naruclac",
+        "notFound": "No Naruclacs found"
+      },
+      "created": "Kreiran je novi Naruclac pod nazivom {{ param }}",
+      "updated": "Naruclac pod nazivom {{ param }} je ažuriran",
+      "deleted": "Naruclac pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Naruclac pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Naruclac"
+      },
+      "id": "ID",
+      "naziv": "Naziv",
+      "adresa": "Adresa",
+      "racun": "Racun",
+      "telefon": "Telefon",
+      "pib": "Pib",
+      "pdv": "Pdv",
+      "odgovornoLiceNarucioca": "Odgovorno Lice Narucioca",
+      "email": "Email"
+    }
+  }
+}

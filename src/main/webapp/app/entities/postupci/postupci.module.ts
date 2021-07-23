@@ -8,10 +8,11 @@ import { PostupciRoutingModule } from './route/postupci-routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {FlexModule} from "@angular/flex-layout";
+import { FlexModule } from '@angular/flex-layout';
+import { JhMaterialModule } from '../../shared/jh-material.module';
 
 @NgModule({
-    imports: [SharedModule, PostupciRoutingModule, MatTableModule, MatPaginatorModule, MatSortModule, FlexModule],
+  imports: [SharedModule, PostupciRoutingModule, MatTableModule, MatPaginatorModule, MatSortModule, FlexModule, JhMaterialModule],
   declarations: [PostupciComponent, PostupciUpdateComponent, PostupciDeleteDialogComponent],
   entryComponents: [PostupciDeleteDialogComponent],
 })

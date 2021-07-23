@@ -1,0 +1,24 @@
+{
+  "tenderiApp": {
+    "ugovori": {
+      "home": {
+        "title": "Ugovoris",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreiraj novi Ugovori",
+        "createOrEditLabel": "Kreirajte ili izmenite Ugovori",
+        "notFound": "No Ugovoris found"
+      },
+      "created": "Kreiran je novi Ugovori pod nazivom {{ param }}",
+      "updated": "Ugovori pod nazivom {{ param }} je ažuriran",
+      "deleted": "Ugovori pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Ugovori pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Ugovori"
+      },
+      "id": "ID",
+      "brojUgovora": "Broj Ugovora"
+    }
+  }
+}

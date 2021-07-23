@@ -1,0 +1,15 @@
+{
+  "tenderiApp": {
+    "tenderiHome": {
+      "home": {
+        "title": "Tenderi Homes",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Tenderi Homes found"
+      },
+      "detail": {
+        "title": "Tenderi Home"
+      },
+      "id": "ID"
+    }
+  }
+}

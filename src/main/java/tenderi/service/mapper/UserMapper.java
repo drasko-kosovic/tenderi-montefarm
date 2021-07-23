@@ -1,5 +1,7 @@
 package tenderi.service.mapper;
 
+import java.util.*;
+import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -8,9 +10,6 @@ import tenderi.domain.Authority;
 import tenderi.domain.User;
 import tenderi.service.dto.AdminUserDTO;
 import tenderi.service.dto.UserDTO;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
