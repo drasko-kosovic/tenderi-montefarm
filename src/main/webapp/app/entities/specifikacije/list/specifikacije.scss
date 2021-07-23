@@ -1,0 +1,82 @@
+tr {
+  cursor: pointer;
+}
+table {
+  width: 100%;
+}
+tr.mat-row:hover {
+  background-color: lightgrey;
+}
+tr {
+  cursor: pointer;
+}
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+tr mat-row {
+  font-weight: bold;
+}
+table {
+  width: 100%;
+}
+tr.mat-row:hover {
+  background-color: lightgrey;
+}
+tr {
+  cursor: pointer;
+}
+tr.mat-footer-row {
+  font-weight: bold;
+}
+#delete {
+  color: red;
+}
+#edit {
+  color: green;
+}
+
+.search-item {
+  margin-top: 10px;
+
+  width: 260px;
+}
+#nadji-fajl {
+  color: white;
+  background-color: yellowgreen;
+}
+#UnseiExcel {
+  color: white;
+  background-color: green;
+}
+
+.example-container {
+  height: 650px;
+  overflow: auto;
+}
+
+.example-container {
+  height: 650px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+
+mat-form-field {
+  width: 200px;
+}
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}
