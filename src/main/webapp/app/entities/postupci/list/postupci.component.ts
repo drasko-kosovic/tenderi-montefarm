@@ -23,14 +23,8 @@ export class PostupciComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  clickedRows = new Set<IPostupci>();
-  constructor(
-    protected postupciService: PostupciService,
-    protected activatedRoute: ActivatedRoute,
-    protected router: Router,
-    protected modalService: NgbModal,
-    public dialog: MatDialog
-  ) {}
+  // clickedRows = new Set<IPostupci>();
+  constructor(protected postupciService: PostupciService, protected modalService: NgbModal, public dialog: MatDialog) {}
 
   loadAll(): void {
     this.postupciService.query().subscribe((res: HttpResponse<IPostupci[]>) => {

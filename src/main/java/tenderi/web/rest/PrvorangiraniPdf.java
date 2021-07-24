@@ -1,5 +1,10 @@
 package tenderi.web.rest;
 
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.ooxml.JRDocxExporter;
@@ -14,12 +19,6 @@ import tenderi.domain.Anex;
 import tenderi.domain.Postupci;
 import tenderi.repository.AnexRepository;
 import tenderi.repository.PostupciRepository;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @CrossOrigin(origins = ("*"))
 @RestController
@@ -39,7 +38,7 @@ public class PrvorangiraniPdf {
     @ResponseBody
     public void getPdfUgovor(HttpServletResponse response, @RequestParam Integer sifraPostupka, @RequestParam Integer sifraPonude)
         throws Exception {
-        Resource resource = context.getResource("classpath:reports/ReportAnex.jrxml");
+        Resource resource = context.getResource("classpath:reports/AnexTable.jrxml");
         InputStream inputStream = resource.getInputStream();
         JasperReport report = JasperCompileManager.compileReport(inputStream);
 
