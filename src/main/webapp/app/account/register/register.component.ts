@@ -36,9 +36,7 @@ export class RegisterComponent implements AfterViewInit {
   });
 
   constructor(private translateService: TranslateService, private registerService: RegisterService, private fb: FormBuilder) {}
-  previousState(): void {
-    window.history.back();
-  }
+
   ngAfterViewInit(): void {
     if (this.login) {
       this.login.nativeElement.focus();
@@ -63,7 +61,9 @@ export class RegisterComponent implements AfterViewInit {
       );
     }
   }
-
+  previousState(): void {
+    window.history.back();
+  }
   private processError(response: HttpErrorResponse): void {
     if (response.status === 400 && response.error.type === LOGIN_ALREADY_USED_TYPE) {
       this.errorUserExists = true;

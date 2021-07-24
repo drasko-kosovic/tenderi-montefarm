@@ -9,6 +9,8 @@ import { Account } from 'app/core/auth/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginService } from 'app/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'jhi-navbar',
@@ -29,7 +31,8 @@ export class NavbarComponent implements OnInit {
     private sessionStorageService: SessionStorageService,
     private accountService: AccountService,
     private profileService: ProfileService,
-    private router: Router
+    private router: Router,
+    protected dialog: MatDialog
   ) {
     if (VERSION) {
       this.version = VERSION.toLowerCase().startsWith('v') ? VERSION : 'v' + VERSION;
@@ -55,6 +58,10 @@ export class NavbarComponent implements OnInit {
 
   login(): void {
     this.router.navigate(['/login']);
+  }
+
+  addPrijava(): any {
+    this.dialog.open(LoginComponent);
   }
 
   logout(): void {
