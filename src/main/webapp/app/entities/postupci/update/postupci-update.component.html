@@ -8,13 +8,10 @@
         <div
           *ngIf="editForm.get('sifraPostupka')!.invalid && (editForm.get('sifraPostupka')!.dirty || editForm.get('sifraPostupka')!.touched)"
         >
-          <small
-            class="form-text text-danger"
-            *ngIf="editForm.get('sifraPostupka')?.errors?.required"
-            jhiTranslate="entity.validation.required"
-          >
-            Obavezno polje.
+          <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
           </small>
+
           <small
             class="form-text text-danger"
             [hidden]="!editForm.get('sifraPostupka')?.errors?.number"
@@ -28,12 +25,8 @@
       <mat-form-field>
         <input matInput placeholder="broj tendera" formControlName="brojTendera" name="brojTendera" />
         <div *ngIf="editForm.get('brojTendera')!.invalid && (editForm.get('brojTendera')!.dirty || editForm.get('brojTendera')!.touched)">
-          <small
-            class="form-text text-danger"
-            *ngIf="editForm.get('brojTendera')?.errors?.required"
-            jhiTranslate="entity.validation.required"
-          >
-            Obavezno polje.
+          <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
           </small>
         </div>
       </mat-form-field>
@@ -43,12 +36,8 @@
         <div
           *ngIf="editForm.get('opisPostupka')!.invalid && (editForm.get('opisPostupka')!.dirty || editForm.get('opisPostupka')!.touched)"
         >
-          <small
-            class="form-text text-danger"
-            *ngIf="editForm.get('opisPostupka')?.errors?.required"
-            jhiTranslate="entity.validation.required"
-          >
-            Obavezno polje.
+          <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
           </small>
         </div>
       </mat-form-field>
@@ -62,23 +51,16 @@
         <div
           *ngIf="editForm.get('vrstaPostupka')!.invalid && (editForm.get('vrstaPostupka')!.dirty || editForm.get('vrstaPostupka')!.touched)"
         >
-          <small
-            class="form-text text-danger"
-            *ngIf="editForm.get('vrstaPostupka')?.errors?.required"
-            jhiTranslate="entity.validation.required"
-          >
-            Obavezno polje.
+          <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
           </small>
         </div>
       </mat-form-field>
-<mat-form-field>
-  <input name="myDate" matInput [matDatepicker]="picker3"
-        placeholder="Date"
-         formControlName="datumObjave">
-  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-  <mat-datepicker #picker3></mat-datepicker>
-</mat-form-field>
-
+      <mat-form-field>
+        <input name="myDate" matInput [matDatepicker]="picker3" placeholder="Date" formControlName="datumObjave" />
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
     </div>
   </form>
 </mat-dialog-content>
