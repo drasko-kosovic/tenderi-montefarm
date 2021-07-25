@@ -16,7 +16,8 @@
       },
       "detail": {
         "title": "Postupci",
-        "addProcess": "Add Process"
+        "addProcess": "Add Process",
+        "process": "Process"
       },
       "id": "ID",
       "sifraPostupka": "Sifra Postupka",
