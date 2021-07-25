@@ -1,6 +1,6 @@
 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Specifikaciju" (click)="addNew()"
-    >Dodaj Specifikaciju</mat-button-toggle
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.addSpecification">Add specifation</span></mat-button-toggle
   >
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
     >Napravi Obrazac</mat-button-toggle

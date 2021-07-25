@@ -15,7 +15,8 @@
         "question": "Da li ste sigurni da želite da obrišete Specifikacije pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Specifikacije"
+        "title": "Specifikacije",
+        "addSpecification": "Dodaj specifikaciju"
       },
       "id": "ID",
       "sifraPostupka": "Sifra Postupka",
