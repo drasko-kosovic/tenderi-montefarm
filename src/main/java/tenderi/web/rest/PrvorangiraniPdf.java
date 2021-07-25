@@ -38,7 +38,7 @@ public class PrvorangiraniPdf {
     @ResponseBody
     public void getPdfUgovor(HttpServletResponse response, @RequestParam Integer sifraPostupka, @RequestParam Integer sifraPonude)
         throws Exception {
-        Resource resource = context.getResource("classpath:reports/AnexTable.jrxml");
+        Resource resource = context.getResource("classpath:reports/ReportAnex.jrxml");
         InputStream inputStream = resource.getInputStream();
         JasperReport report = JasperCompileManager.compileReport(inputStream);
 
