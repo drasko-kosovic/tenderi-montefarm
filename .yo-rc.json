@@ -43,7 +43,7 @@
     "devServerPort": 4200,
     "clientPackageManager": "npm",
     "languages": ["sr", "en"],
-    "herokuAppName": "drasko",
+    "herokuAppName": "tenderi-montefarm",
     "herokuDeployType": "jar",
     "herokuJavaVersion": "11"
   }
