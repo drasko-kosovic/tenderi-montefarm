@@ -90,7 +90,9 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Odustani</button>
+  <button type="button" mat-raised-button color="warn" (click)="close()">
+    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+  </button>
   <button
     [hidden]="aktivno == false"
     id="sacuvaj-button"
@@ -100,17 +102,19 @@
     [mat-dialog-close]="true"
     cdkFocusInitial
   >
-    Sačuvaj
+    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
   </button>
   <button
-    (click)="confirmAdd()"
+    type="submit"
     [disabled]="editForm.invalid"
     [hidden]="aktivno == true"
     mat-raised-button
     color="primary"
+    (click)="confirmAdd()"
     [mat-dialog-close]="true"
     cdkFocusInitial
   >
-    Dodaj
+    <fa-icon icon="save"></fa-icon>&nbsp;
+    <span jhiTranslate="entity.action.add">Add</span>
   </button>
 </mat-dialog-actions>

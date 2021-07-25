@@ -55,7 +55,9 @@ export class SpecifikacijeUpdateComponent {
     });
     this.aktivno = name;
   }
-
+  close(): any {
+    this.dialogRef.close();
+  }
   public confirmAdd(): void {
     const specifikacije = this.createFromForm();
     this.subscribeToSaveResponse(this.specifikacijeService.create(specifikacije));
