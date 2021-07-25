@@ -15,7 +15,8 @@
         "question": "Are you sure you want to delete Postupci {{ id }}?"
       },
       "detail": {
-        "title": "Postupci"
+        "title": "Postupci",
+        "addProcess": "Add Process"
       },
       "id": "ID",
       "sifraPostupka": "Sifra Postupka",

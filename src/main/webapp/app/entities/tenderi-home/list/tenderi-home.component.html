@@ -1,23 +1,25 @@
-<!--<button mat-raised-button (click)="refresh()">-->
-<!--  <mat-icon>refresh</mat-icon>-->
-<!--</button>-->
+<button mat-raised-button (click)="refresh()">
+  <mat-icon>refresh</mat-icon>
+</button>
 <div class="tabset">
   <input type="radio" name="tabset" id="tab1" aria-controls="dunkles" checked />
-  <label for="tab1">Specifikacije</label>
+  <label for="tab1"><span jhiTranslate="tenderi-home.specifikacije">Specifikacije</span></label>
 
   <input type="radio" name="tabset" id="tab2" aria-controls="dunkles" />
-  <label for="tab2">Ponude</label>
+  <label for="tab2"><span jhiTranslate="tenderi-home.offers">Offers</span></label>
   <input type="radio" name="tabset" id="tab3" aria-controls="dunkles" />
-  <label for="tab3">Bodovanje</label>
+  <label for="tab3"><span jhiTranslate="tenderi-home.scoring">Scoring</span></label>
 
   <input type="radio" name="tabset" id="tab4" aria-controls="dunkles" />
-  <label for="tab4">Prvorangirani</label>
+  <label for="tab4"><span jhiTranslate="tenderi-home.first-ranked">First-ranked</span></label>
 
   <input type="radio" name="tabset" id="tab5" aria-controls="dunkles" />
-  <label matTooltip="Nije prilozena nijedna ponuda ili je neispavna, pi ih treba ponovo raspisati" for="tab5">Hvale</label>
+  <label matTooltip="Nije prilozena nijedna ponuda ili je neispavna, pi ih treba ponovo raspisati" for="tab5"
+    ><span jhiTranslate="tenderi-home.missing">Missing</span></label
+  >
 
   <input type="radio" name="tabset" id="tab6" aria-controls="dunkles" />
-  <label for="tab6">Ugovori</label>
+  <label for="tab6"><span jhiTranslate="tenderi-home.contract">Contract</span></label>
 
   <div class="tab-panels">
     <section id="marzen" class="tab-panel">

@@ -6,7 +6,6 @@ import { IPostupci } from 'app/entities/postupci/postupci.model';
 import { PostupciService } from 'app/entities/postupci/service/postupci.service';
 import { HttpResponse } from '@angular/common/http';
 import { PostupciDeleteDialogComponent } from 'app/entities/postupci/delete/postupci-delete-dialog.component';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { PostupciUpdateComponent } from 'app/entities/postupci/update/postupci-update.component';

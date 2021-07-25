@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from 'app/shared/shared.module';
 import { TenderiHomeComponent } from './list/tenderi-home.component';
-import { TenderiHomeDetailComponent } from './detail/tenderi-home-detail.component';
 import { TenderiHomeRoutingModule } from './route/tenderi-home-routing.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SpecifikacijeModule } from '../specifikacije/specifikacije.module';
@@ -26,6 +25,6 @@ import { UgovorModule } from '../ugovor/ugovor.module';
     HvalePonudeModule,
     UgovorModule,
   ],
-  declarations: [TenderiHomeComponent, TenderiHomeDetailComponent],
+  declarations: [TenderiHomeComponent],
 })
 export class TenderiHomeModule {}

@@ -1,8 +1,8 @@
 <div>
   <mat-card class="example-container mat-elevation-z24">
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Postupak" (click)="addNew()"
-        >Dodaj Postupak</mat-button-toggle
+      <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Postupak" (click)="addNew()">
+        <span jhiTranslate="tenderiApp.postupci.detail.addProcess">Add Process</span></mat-button-toggle
       >
     </mat-button-toggle-group>
     <mat-divider></mat-divider>

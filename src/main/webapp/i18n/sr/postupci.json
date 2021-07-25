@@ -15,7 +15,8 @@
         "question": "Da li ste sigurni da želite da obrišete Postupci pod nazivom {{ id }}?"
       },
       "detail": {
-        "title": "Postupci"
+        "title": "Postupci",
+        "addProcess": "Dodaj Postupak"
       },
       "id": "ID",
       "sifraPostupka": "Sifra Postupka",
