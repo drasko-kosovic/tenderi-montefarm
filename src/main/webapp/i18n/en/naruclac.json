@@ -1,21 +1,21 @@
 {
   "tenderiApp": {
-    "naruclac": {
+    "Orderer": {
       "home": {
-        "title": "Naruclacs",
+        "title": "Orderer",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Naruclac",
-        "createOrEditLabel": "Create or edit a Naruclac",
-        "notFound": "No Naruclacs found"
+        "createLabel": "Create a new Orderer",
+        "createOrEditLabel": "Create or edit a Orderer",
+        "notFound": "No Orderer found"
       },
-      "created": "A new Naruclac is created with identifier {{ param }}",
-      "updated": "A Naruclac is updated with identifier {{ param }}",
-      "deleted": "A Naruclac is deleted with identifier {{ param }}",
+      "created": "A new Orderer is created with identifier {{ param }}",
+      "updated": "A Orderer is updated with identifier {{ param }}",
+      "deleted": "A Orderer is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Naruclac {{ id }}?"
+        "question": "Are you sure you want to delete Orderer {{ id }}?"
       },
       "detail": {
-        "title": "Naruclac"
+        "title": "Orderer"
       },
       "id": "ID",
       "naziv": "Naziv",
