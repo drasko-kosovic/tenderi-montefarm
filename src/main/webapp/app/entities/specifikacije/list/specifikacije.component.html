@@ -3,11 +3,11 @@
     ><span jhiTranslate="tenderiApp.specifikacije.detail.addSpecification">Add specifation</span></mat-button-toggle
   >
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
-    >Napravi Obrazac</mat-button-toggle
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.createFile">Create File</span></mat-button-toggle
   >
-  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl">Dodaj Fajl</mat-button-toggle>
+  <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl"><span jhiTranslate="tenderiApp.specifikacije.detail.addFile">Add File</span></mat-button-toggle>
   <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
-    >Nadji Fajl</mat-button-toggle
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.findExcelFile">Find Excel File</span></mat-button-toggle
   >
   <input hidden #fileInput type="file" id="file" />
 </mat-button-toggle-group>

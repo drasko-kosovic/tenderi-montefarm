@@ -1,15 +1,15 @@
 <div>
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
     <input hidden #fileInput type="file" id="file" />
-    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj novu ponudu" (click)="addNew()">Dodaj Ponudu</mat-button-toggle>
-    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Unesi Excel fajl" (click)="uploadFile()"
-      >Dodaj Fajl</mat-button-toggle
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Dodaj Specifikaciju" (click)="addNew()"
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.addOffer">Add Offer</span></mat-button-toggle
     >
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Napravi formu za unos Excel" (click)="DownloadExcel()"
-      >Napravi Obrazac</mat-button-toggle
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.createFile">Create File</span></mat-button-toggle
     >
+    <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="uploadFile()" matTooltip="Unesi Excel fajl"><span jhiTranslate="tenderiApp.specifikacije.detail.addFile">Add File</span></mat-button-toggle>
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Nadji Excel fajl" (click)="fileInput.click()"
-      >Nadji Fajl</mat-button-toggle
+    ><span jhiTranslate="tenderiApp.specifikacije.detail.findExcelFile">Find Excel File</span></mat-button-toggle
     >
 
     <mat-button-toggle
@@ -19,11 +19,11 @@
       ><img src="../../../../content/images/icons8-microsoft-excel-48.png" alt=""
     /></mat-button-toggle>
     <mat-button-toggle *jhiHasAnyAuthority="'ROLE_ADMIN'" matTooltip="Ukloni cijelu ponudu" (click)="open(content1)"
-      >Ukloni Ponudu</mat-button-toggle
+      ><span jhiTranslate="tenderiApp.specifikacije.detail.deleteOffer">Delete Offer</span></mat-button-toggle
     >
   </mat-button-toggle-group>
   <mat-form-field>
-    <mat-label>Ponudjaci</mat-label>
+    <mat-label><span jhiTranslate="global.bidder">Bider</span></mat-label>
     <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
       <mat-option (click)="ngOnChanges()">Osvjezi</mat-option>
       <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">

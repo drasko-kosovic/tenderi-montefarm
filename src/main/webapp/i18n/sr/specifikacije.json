@@ -16,7 +16,13 @@
       },
       "detail": {
         "title": "Specifikacije",
-        "addSpecification": "Dodaj specifikaciju"
+        "addSpecification": "Dodaj specifikaciju",
+        "findExcelFile": "Nadji Excel File",
+        "createFile": "Kreiraj Excel Dokument",
+        "findFile": "Nadji Excel Dokumet",
+        "addFile": "Dodaj Dokument",
+        "addOffer": "Dodaj Ponudu",
+        "deleteOffer": "Obrisi Ponudu"
       },
       "id": "ID",
       "sifraPostupka": "Sifra Postupka",
