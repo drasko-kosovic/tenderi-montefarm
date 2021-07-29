@@ -42,6 +42,9 @@
     "jwtSecretKey": "MTI5MTc4NWMzMjgxZmE3NWYyMWY2NTcwMTkxODk3NjU5NzIwOWE4ZDkxYWJkOTgyOGZhYmE5ODRjNTE2ZDk3MzEyYjI2MDk2ZWJhMzEzYmJmMmRlZDY0NTIxZmM0ZTZkN2U4MzU0YTQ4NGE0Nzg1YTliNDU3YWVmMjVkOTZlOWE=",
     "devServerPort": 4200,
     "clientPackageManager": "npm",
-    "languages": ["sr", "en"]
+    "languages": ["sr", "en"],
+    "herokuAppName": null,
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }
