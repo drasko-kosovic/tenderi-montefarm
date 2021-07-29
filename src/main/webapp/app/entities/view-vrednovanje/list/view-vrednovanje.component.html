@@ -8,7 +8,7 @@
 </mat-button-toggle-group>
 
 <mat-form-field>
-  <mat-label>Ponudjaci</mat-label>
+  <mat-label><span jhiTranslate="global.bidder">Bider</span></mat-label>
   <mat-select (selectionChange)="getSifraPonude()" [(ngModel)]="nadjiPonudjaca">
     <mat-option (click)="ngOnChanges()">Osvjezi</mat-option>
     <mat-option *ngFor="let foo of ponude_ponudjaci" [value]="foo.sifraPonude">

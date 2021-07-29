@@ -4,7 +4,7 @@
       "home": {
         "title": "Ugovoris",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Kreiraj novi Ugovori",
+        "createLabel": "Dodaj Novi Ugovor",
         "createOrEditLabel": "Kreirajte ili izmenite Ugovori",
         "notFound": "No Ugovoris found"
       },
